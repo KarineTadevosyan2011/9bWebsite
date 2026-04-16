@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Մեր Դասարանը և Թիմը</title>
+    <style>
+
+        /* ===== BASE STYLES ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 16px;
+            text-align: center;
+        }
+
+        header img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            display: block;
+            margin: 16px auto 0;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: clamp(1.1em, 4vw, 2.2em);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            word-break: break-word;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            max-width: 850px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px 16px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: clamp(1.1em, 3vw, 1.5em);
+            word-break: break-word;
+        }
+
+        /* ===== MOTTO BOX ===== */
+        .motto-box {
+            background-color: #fff9c4;
+            padding: 16px;
+            border-left: 6px solid #fbc02d;
+            font-size: clamp(1em, 2.5vw, 1.2em);
+            text-align: center;
+        }
+
+        b { color: #e74c3c; }
+        i { color: #555; }
+        u { text-decoration-color: #3498db; }
+
+        /* ===== DEFINITION LIST ===== */
+        dt { font-weight: bold; color: #2c3e50; font-size: 1.05em; margin-top: 10px; }
+        dd { margin-left: 16px; font-style: italic; color: #666; }
+
+        /* ===== ORDERED LIST ===== */
+        .journal-container {
+            display: flex;
+            justify-content: center;
+        }
+        ol {
+            column-count: 2;
+            gap: 30px;
+            padding-left: 20px;
+        }
+        ol li { padding: 5px; border-bottom: 1px solid #eee; }
+
+        /* ===== TABLE ===== */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        table {
+            width: 100%;
+            min-width: 320px;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* ===== TEAM PHOTO ===== */
+        .team-photo-wrapper {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .main-team-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border: 8px solid #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+
+        /* ===== SOCIAL LINKS ===== */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .social-links a {
+            text-decoration: none;
+            background: #ecf0f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: #2980b9;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: clamp(0.85em, 2.5vw, 1em);
+        }
+        .social-links a:hover { background: #3498db; color: white; }
+
+        /* ===== FORM ===== */
+        .form-group { margin-bottom: 15px; text-align: left; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .submit-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .submit-btn:hover { background-color: #219150; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #fff;
+            padding: 30px 16px;
+            text-align: center;
+            border-top: 5px solid #27ae60;
+        }
+        .teacher-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #27ae60;
+        }
+
+        /* ===== DIRECTOR SECTION ===== */
+        .director-section {
+            background-color: #e8f4f8;
+            border: 2px solid #2980b9;
+            border-radius: 12px;
+            padding: 20px 16px;
+            margin: 16px auto;
+            max-width: 850px;
+            text-align: center;
+        }
+        .director-name {
+            font-size: clamp(1.1em, 3vw, 1.5em);
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .praise-text {
+            font-style: italic;
+            color: #34495e;
+            font-size: clamp(0.95em, 2.5vw, 1.1em);
+        }
+
+        /* ===== IT TEACHER SECTION ===== */
+        .it-teacher-section {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            border-left: 8px solid #27ae60;
+            padding: 20px 16px;
+            text-align: left;
+            max-width: 850px;
+            margin: 16px auto;
+            border-radius: 12px;
+        }
+        .it-teacher-section h2 {
+            color: #27ae60;
+            border-bottom-color: #27ae60;
+        }
+        .code-header {
+            font-family: 'Courier New', monospace;
+            color: #f1c40f;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .it-details .praise-text {
+            color: #bdc3c7;
+            border-left: none;
+            padding: 0;
+        }
+
+        /* ===== CLASS SPIRIT ===== */
+        .class-spirit {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .class-spirit h2 {
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        .spirit-list {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            max-width: 500px;
+        }
+        .spirit-list li {
+            margin: 10px 0;
+            font-size: clamp(1em, 2.5vw, 1.1em);
+        }
+        .spirit-content p {
+            font-size: clamp(1em, 2.5vw, 1.2em);
+            line-height: 1.8;
+        }
+
+        /* ===== STUDENT GRID ===== */
+        .class-gallery {
+            max-width: 1100px;
+        }
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 10px 0;
+        }
+        .student-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .student-photo-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+        }
+        .student-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .student-info {
+            padding: 10px;
+        }
+        .student-info h3 {
+            margin: 5px 0;
+            font-size: clamp(0.95em, 2vw, 1.1em);
+            color: #2c3e50;
+        }
+        .student-info p {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        /* ===== TABLET: 600px – 900px ===== */
+        @media (max-width: 900px) {
+            section, .director-section, .it-teacher-section {
+                margin: 16px 12px;
+                padding: 20px 16px;
+            }
+            .students-grid {
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            }
+        }
+
+        /* ===== MOBILE: up to 600px ===== */
+        @media (max-width: 600px) {
+            header {
+                padding: 24px 12px;
+            }
+            section, .director-section, .it-teacher-section {
+                margin: 12px 8px;
+                padding: 16px 12px;
+                border-radius: 8px;
+            }
+
+            /* Single-column list on mobile */
+            ol {
+                column-count: 1;
+            }
+
+            /* Table scrolls horizontally */
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.9em;
+            }
+
+            /* Stack social links nicely */
+            .social-links {
+                gap: 8px;
+            }
+            .social-links a {
+                padding: 8px 12px;
+            }
+
+            /* Student grid: 2 columns on mobile */
+            .students-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0;
+            }
+            .student-photo-placeholder {
+                height: 140px;
+            }
+            .student-info h3 {
+                font-size: 0.9em;
+            }
+            .student-info p {
+                font-size: 0.78em;
+            }
+
+            .teacher-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .it-teacher-section {
+                border-left-width: 5px;
+            }
+
+            .main-team-img {
+                border-width: 4px;
+            }
+        }
+
+        /* ===== VERY SMALL MOBILE: up to 380px ===== */
+        @media (max-width: 380px) {
+            .students-grid {
+                grid-template-columns: 1fr;
+            }
+            .student-photo-placeholder {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+
+         <h1>ԵՐԵՎԱՆԻ ԱՇՈՏ ՄԱՆՈՒԿՅԱՆԻ ԱՆՎԱՆ Հ. 93 ՄԻՋՆԱԿԱՐԳ ԴՊՐՈՑ</h1>
+        <h1>Դասարան՝ 9-րդ Բ | Թիմ՝ Կիբեռ Հնգյակ</h1>
+         <img src="https://scontent.fevn1-1.fna.fbcdn.net/v/t39.30808-6/475978893_1107596777833734_3863462297304190444_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=SqHcnEl0TZMQ7kNvwHqB3HJ&_nc_oc=AdqW2nBDLFAWeu9VwqNe-K1hiMM-zogjEJGr0FqVkYibrmAQbcIMG6jw-FCKwFKbytI&_nc_zt=23&_nc_ht=scontent.fevn1-1.fna&_nc_gid=bx5hixnhq7K2qZtOlCCbrQ&_nc_ss=7a389&oh=00_Af1YBd9vT4BUrpeAtBF-mX6TXxFvf9ivPu7u1-hESAMzeQ&oe=69DF1B5A" width="450" height="450">
+    </header>
+<div class="director-section">
+        <h2>Դպրոցի Տնօրեն</h2>
+        <span class="director-name">Իրինա Հակոբյան</span>
+        <p class="praise-text">
+            Մեր հարգարժան տնօրենը իր փորձով և նվիրումով ստեղծել է այնպիսի միջավայր, որտեղ յուրաքանչյուր աշակերտ իրեն գնահատված է զգում։ 
+            Շնորհակալ ենք Ձեզ՝ մեր կրթության հանդեպ ունեցած մեծ հոգատարության և դպրոցը մշտապես զարգացնելու համար։ 
+            Դուք օրինակ եք մեզ համար որպես առաջնորդ և բանիմաց մասնագետ։
+        </p>
+    </div>
+
+    <div class="director-section">
+        <h2>Դասղեկ</h2>
+        <span class="director-name">Անահիտ Թոթոլյան</span>
+        <p class="praise-text">
+            Մեր դասղեկը միշտ մեր կողքին է, օգնում է մեզ հաղթահարել բոլոր դժվարությունները և սովորեցնում է լինել արժանապատիվ մարդ:
+        </p>
+    </div>
+
+    <section class="it-teacher-section">
+        <div class="code-header"></div>
+        <h2>Ինֆորմատիկայի Ուսուցչուհի - Ալլա Կարապետյան</h2>
+        <div class="it-details">
+            <p class="praise-text">
+                Մեր ինֆորմատիկայի ուսուցիչը մեզ համար բացահայտեց թվային աշխարհի գաղտնիքները։ 
+                Շնորհակալ ենք Ձեզ՝ բարդ կոդերն ու ալգորիթմները մեզ պարզ և հետաքրքիր ձևով մատուցելու համար։ 
+                Ձեր օգնությամբ մենք սովորեցինք ստեղծել մեր առաջին վեբ-էջերը և հասկանալ տեխնոլոգիաների լեզուն։ 
+                Դուք զարգացնում եք մեր տրամաբանությունը և պատրաստում մեզ ապագայի թվային մարտահրավերներին։
+            </p>
+        </div>
+    </section>
+<section class="class-gallery">
+    <h2>Մեր Դասարանական Մատյանը (24 Աշակերտ)</h2>
+    <div class="students-grid">
+        
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="C:\Users\Dell\Desktop\images\IMG_9981.JPG" alt="Աշակերտ 1" class="student-img"></div>
+            <div class="student-info"><h3>Սոֆյա Բաբայան</h3><p>Ես Սոֆյան, եմ ծնվել եմ Արցախում և զբաղվում եմ պարով գրեթե 12 տարի</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="C:\Users\Dell\Desktop\images\IMG_9967.JPG" alt="Աշակերտ 2" class="student-img"></div>
+            <div class="student-info"><h3>Նանե Բաղդասարյան</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s3.jpg" alt="Աշակերտ 3" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s4.jpg" alt="Աշակերտ 4" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s5.jpg" alt="Աշակերտ 5" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s6.jpg" alt="Աշակերտ 6" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s7.jpg" alt="Աշակերտ 7" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s8.jpg" alt="Աշակերտ 8" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s9.jpg" alt="Աշակերտ 9" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s10.jpg" alt="Աշակերտ 10" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s11.jpg" alt="Աշակերտ 11" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s12.jpg" alt="Աշակերտ 12" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s13.jpg" alt="Աշակերտ 13" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s14.jpg" alt="Աշակերտ 14" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s15.jpg" alt="Աշակերտ 15" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s16.jpg" alt="Աշակերտ 16" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s17.jpg" alt="Աշակերտ 17" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s18.jpg" alt="Աշակերտ 18" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s19.jpg" alt="Աշակերտ 19" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s20.jpg" alt="Աշակերտ 20" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s21.jpg" alt="Աշակերտ 21" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s22.jpg" alt="Աշակերտ 22" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s23.jpg" alt="Աշակերտ 23" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-photo-placeholder"><img src="s24.jpg" alt="Աշակերտ 24" class="student-img"></div>
+            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+        </div>
+
+    </div>
+</section>
+    <section>
+        <h2>Մեր Դասարանը</h2>
+        <p>Մեր դասարանը բաղկացած է 24 աշակերտից։ Մենք շատ համերաշխ ենք, սիրում ենք միասին սովորել և ստեղծագործել։ Այս էջը պատրաստել ենք մեր թիմով՝ ցույց տալու համար մեր հմտությունները HTML և CSS լեզուներում։</p>
+    </section>
+
+    <section class="motto-box">
+        <p>Մեր սկզբունքն է՝ լինել <b>առաջատար</b>, միշտ մնալ <i>ընկերասեր</i> և հասնել <u>լավագույն արդյունքներին</u>։</p>
+    </section>
+
+    <section>
+        <h2>Բնութագիր</h2>
+        <dl>
+            <dt>Տղաները</dt>
+            <dd>Խելացի են, ակտիվ և միշտ պատրաստ են օգնելու ընկերներին։</dd>
+            <dt>Աղջիկները</dt>
+            <dd>Կազմակերպված են, ստեղծագործող և գեղեցկացնում են մեր առօրյան։</dd>
+        </dl>
+    </section>
+
+   
+
+    <section>
+        <h2>Աշխատանքի բաշխում</h2>
+        <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Մասնակից</th>
+                    <th>Կատարած աշխատանք</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Կարինե Թադևոսյան</td><td>Կոդավորում (HTML)</td></tr>
+                <tr><td>Էլեն Սիմոնյան</td><td>Դիզայն (CSS)</td></tr>
+                <tr><td>Արփի Սարգսյան</td><td>Տեքստերի պատրաստում</td></tr>
+                <tr><td>Սուսաննա Մալխանսյան</td><td>Նկարների մշակում</td></tr>
+                <tr><td>Սեդա Մելքոնյան</td><td>Տվյալների հավաքագրում</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section>
+        <h2>Մեր Թիմը</h2>
+        <div class="team-photo-wrapper">
+            <img src="team_photo.jpg" alt="Մեր թիմը" class="main-team-img">
+        </div>
+        <p><strong>Մեր սոցիալական էջերը.</strong></p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/9b___93/" target="_blank">Դասարանի էջ</a>
+            <a href="https://www.instagram.com/kar_tadevosyan_/">Կարինե</a>
+            <a href="https://www.instagram.com/elensimonyan_70/?utm_source=ig_web_button_share_sheet">Էլեն</a >
+            <a href="https://www.instagram.com/arpiisargsyann/?utm_source=ig_web_button_share_sheet">Արփի</a>
+            <a href="https://www.instagram.com/urfavvsusiii/">Սուսաննա</a>
+            <a href="https://www.instagram.com/s_melqonyaan/">Սեդա</a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Հետադարձ կապ</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Ձեր Անունը">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Ձեր Ազգանունը">
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Ձեր Էլ. փոստը (Mail)">
+            </div>
+            <button type="button" class="submit-btn">Գրանցվել</button>
+        </form>
+    </section>
+
+    <section class="class-spirit">
+        <h2>Ինչու՞ ենք մենք ԼԱՎ դասարան</h2>
+        <div class="spirit-content">
+            <p>
+                Մենք պարզապես աշակերտների խումբ չենք, մենք <b>մեկ ընտանիք ենք</b>։ Լավ դասարան լինելը մեզ համար նշանակում է 
+                թև ու թիկունք լինել իրար դժվար պահերին և միասին տոնել ամեն մի հաջողություն։ 
+            </p>
+            <ul class="spirit-list">
+                <li>✨ Մենք հարգում ենք իրար կարծիքը։</li>
+                <li>✨ Մենք սիրում ենք օգնել նրանց, ովքեր դրա կարիքն ունեն։</li>
+                <li>✨ Մենք դպրոցի ամենաուրախ ու կազմակերպված թիմն ենք։</li>
+            </ul>
+            <p><i>Մեր ուժը մեր միասնության մեջ է։</i></p>
+        </div>
+    </section>
+
+</body>
+</html>
