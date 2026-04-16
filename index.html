@@ -6,7 +6,6 @@
     <title>Մեր Դասարանը և Թիմը</title>
     <style>
 
-        /* ===== BASE STYLES ===== */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -20,7 +19,6 @@
             color: #333;
         }
 
-        /* ===== HEADER ===== */
         header {
             background-color: #2c3e50;
             color: white;
@@ -44,7 +42,6 @@
             word-break: break-word;
         }
 
-        /* ===== SECTIONS ===== */
         section {
             max-width: 850px;
             margin: 20px auto;
@@ -63,7 +60,6 @@
             word-break: break-word;
         }
 
-        /* ===== MOTTO BOX ===== */
         .motto-box {
             background-color: #fff9c4;
             padding: 16px;
@@ -76,11 +72,9 @@
         i { color: #555; }
         u { text-decoration-color: #3498db; }
 
-        /* ===== DEFINITION LIST ===== */
         dt { font-weight: bold; color: #2c3e50; font-size: 1.05em; margin-top: 10px; }
         dd { margin-left: 16px; font-style: italic; color: #666; }
 
-        /* ===== ORDERED LIST ===== */
         .journal-container {
             display: flex;
             justify-content: center;
@@ -92,7 +86,6 @@
         }
         ol li { padding: 5px; border-bottom: 1px solid #eee; }
 
-        /* ===== TABLE ===== */
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -113,7 +106,6 @@
         th { background-color: #3498db; color: white; }
         tr:nth-child(even) { background-color: #f9f9f9; }
 
-        /* ===== TEAM PHOTO ===== */
         .team-photo-wrapper {
             margin: 20px 0;
             text-align: center;
@@ -127,7 +119,6 @@
             border-radius: 5px;
         }
 
-        /* ===== SOCIAL LINKS ===== */
         .social-links {
             display: flex;
             justify-content: center;
@@ -147,7 +138,6 @@
         }
         .social-links a:hover { background: #3498db; color: white; }
 
-        /* ===== FORM ===== */
         .form-group { margin-bottom: 15px; text-align: left; }
         input {
             width: 100%;
@@ -170,7 +160,6 @@
         }
         .submit-btn:hover { background-color: #219150; }
 
-        /* ===== FOOTER ===== */
         footer {
             background-color: #fff;
             padding: 30px 16px;
@@ -186,16 +175,29 @@
             border: 4px solid #27ae60;
         }
 
-        /* ===== DIRECTOR SECTION ===== */
         .director-section {
             background-color: #e8f4f8;
             border: 2px solid #2980b9;
             border-radius: 12px;
-            padding: 20px 16px;
+            padding: 24px 20px;
             margin: 16px auto;
             max-width: 850px;
             text-align: center;
         }
+
+        .director-inner {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            text-align: left;
+        }
+        .director-inner .person-text {
+            flex: 1;
+        }
+        .director-inner .person-text h2 {
+            margin-top: 0;
+        }
+
         .director-name {
             font-size: clamp(1.1em, 3vw, 1.5em);
             color: #2c3e50;
@@ -209,20 +211,71 @@
             font-size: clamp(0.95em, 2.5vw, 1.1em);
         }
 
-        /* ===== IT TEACHER SECTION ===== */
+        .person-photo-wrap {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .person-photo-wrap .person-img,
+        .person-photo-wrap .person-placeholder {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2980b9;
+            background-color: #d0e8f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .person-placeholder svg {
+            width: 60px;
+            height: 60px;
+            opacity: 0.45;
+        }
+
+        .it-photo-wrap .person-img,
+        .it-photo-wrap .person-placeholder {
+            border-color: #27ae60;
+            background-color: #1a2a1a;
+        }
+
+        .person-photo-caption {
+            font-size: 0.78em;
+            color: #7f8c8d;
+            text-align: center;
+        }
+        .it-photo-wrap .person-photo-caption {
+            color: #7f9c8a;
+        }
+
         .it-teacher-section {
             background-color: #2c3e50;
             color: #ecf0f1;
             border-left: 8px solid #27ae60;
-            padding: 20px 16px;
+            padding: 24px 20px;
             text-align: left;
             max-width: 850px;
             margin: 16px auto;
             border-radius: 12px;
         }
+        .it-teacher-inner {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .it-teacher-inner .person-text {
+            flex: 1;
+        }
         .it-teacher-section h2 {
             color: #27ae60;
             border-bottom-color: #27ae60;
+            margin-top: 0;
         }
         .code-header {
             font-family: 'Courier New', monospace;
@@ -236,7 +289,24 @@
             padding: 0;
         }
 
-        /* ===== CLASS SPIRIT ===== */
+        @media (max-width: 560px) {
+            .director-inner,
+            .it-teacher-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .director-inner .person-text,
+            .it-teacher-inner .person-text {
+                text-align: center;
+            }
+            .person-photo-wrap .person-img,
+            .person-photo-wrap .person-placeholder {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
         .class-spirit {
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: white;
@@ -265,7 +335,6 @@
             line-height: 1.8;
         }
 
-        /* ===== STUDENT GRID ===== */
         .class-gallery {
             max-width: 1100px;
         }
@@ -306,7 +375,6 @@
             color: #666;
         }
 
-        /* ===== TABLET: 600px – 900px ===== */
         @media (max-width: 900px) {
             section, .director-section, .it-teacher-section {
                 margin: 16px 12px;
@@ -317,7 +385,6 @@
             }
         }
 
-        /* ===== MOBILE: up to 600px ===== */
         @media (max-width: 600px) {
             header {
                 padding: 24px 12px;
@@ -328,18 +395,15 @@
                 border-radius: 8px;
             }
 
-            /* Single-column list on mobile */
             ol {
                 column-count: 1;
             }
 
-            /* Table scrolls horizontally */
             th, td {
                 padding: 8px 6px;
                 font-size: 0.9em;
             }
 
-            /* Stack social links nicely */
             .social-links {
                 gap: 8px;
             }
@@ -347,7 +411,6 @@
                 padding: 8px 12px;
             }
 
-            /* Student grid: 2 columns on mobile */
             .students-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
@@ -397,25 +460,50 @@
          <img src="https://scontent.fevn1-1.fna.fbcdn.net/v/t39.30808-6/475978893_1107596777833734_3863462297304190444_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=SqHcnEl0TZMQ7kNvwHqB3HJ&_nc_oc=AdqW2nBDLFAWeu9VwqNe-K1hiMM-zogjEJGr0FqVkYibrmAQbcIMG6jw-FCKwFKbytI&_nc_zt=23&_nc_ht=scontent.fevn1-1.fna&_nc_gid=bx5hixnhq7K2qZtOlCCbrQ&_nc_ss=7a389&oh=00_Af1YBd9vT4BUrpeAtBF-mX6TXxFvf9ivPu7u1-hESAMzeQ&oe=69DF1B5A" width="450" height="450">
     </header>
 <div class="director-section">
-        <h2>Դպրոցի Տնօրեն</h2>
-        <span class="director-name">Իրինա Հակոբյան</span>
-        <p class="praise-text">
+        <div class="director-inner">
+            <div class="person-photo-wrap">
+                <img src="director_photo.jpg" alt="Իрина Hакобян" class="person-img"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="person-placeholder" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            </div>
+            <div class="person-text">
+                <h2>Դպրոցի Տնօրեն</h2>
+                <span class="director-name">Իրինա Հակոբյան</span>
+                <p class="praise-text">
             Մեր հարգարժան տնօրենը իր փորձով և նվիրումով ստեղծել է այնպիսի միջավայր, որտեղ յուրաքանչյուր աշակերտ իրեն գնահատված է զգում։ 
             Շնորհակալ ենք Ձեզ՝ մեր կրթության հանդեպ ունեցած մեծ հոգատարության և դպրոցը մշտապես զարգացնելու համար։ 
             Դուք օրինակ եք մեզ համար որպես առաջնորդ և բանիմաց մասնագետ։
         </p>
+            </div>
+        </div>
     </div>
 
     <div class="director-section">
-        <h2>Դասղեկ</h2>
-        <span class="director-name">Անահիտ Թոթոլյան</span>
-        <p class="praise-text">
+        <div class="director-inner">
+            <div class="person-photo-wrap">
+                <img src="../9bWebsite/images/Ynker Totolyan.JPG" alt="Анахит Тоtолян" class="person-img"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="person-placeholder" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            </div>
+            <div class="person-text">
+                <h2>Դասղեկ</h2>
+                <span class="director-name">Անահիտ Թոթոլյան</span>
+                <p class="praise-text">
             Մեր դասղեկը միշտ մեր կողքին է, օգնում է մեզ հաղթահարել բոլոր դժվարությունները և սովորեցնում է լինել արժանապատիվ մարդ:
         </p>
+            </div>
+        </div>
     </div>
 
     <section class="it-teacher-section">
-        <div class="code-header"></div>
+        <div class="it-teacher-inner">
+            <div class="person-photo-wrap it-photo-wrap">
+                <img src="../9bWebsite/images/inform.JPG" alt="Алла Карапетян" class="person-img"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="person-placeholder" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            </div>
+            <div class="person-text">
+                <div class="code-header"></div>
         <h2>Ինֆորմատիկայի Ուսուցչուհի - Ալլա Կարապետյան</h2>
         <div class="it-details">
             <p class="praise-text">
@@ -425,129 +513,132 @@
                 Դուք զարգացնում եք մեր տրամաբանությունը և պատրաստում մեզ ապագայի թվային մարտահրավերներին։
             </p>
         </div>
+            </div>
+        </div>
     </section>
 <section class="class-gallery">
     <h2>Մեր Դասարանական Մատյանը (24 Աշակերտ)</h2>
     <div class="students-grid">
         
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="C:\Users\Dell\Desktop\images\IMG_9981.JPG" alt="Աշակերտ 1" class="student-img"></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Sofia.JPG" alt="Աշակերտ 1" class="student-img"></div>
             <div class="student-info"><h3>Սոֆյա Բաբայան</h3><p>Ես Սոֆյան, եմ ծնվել եմ Արցախում և զբաղվում եմ պարով գրեթե 12 տարի</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="C:\Users\Dell\Desktop\images\IMG_9967.JPG" alt="Աշակերտ 2" class="student-img"></div>
-            <div class="student-info"><h3>Նանե Բաղդասարյան</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Nane.JPG" alt="Աշակերտ 2" class="student-img"></div>
+            <div class="student-info"><h3>Նանե Բաղդասարյան</h3><p>Ես Նանեն եմ,բարի, սիրում եմ լավ մարդկանց, 8տարի զբաղվել  եմ  պարով, 3տարի նկարչություն, ընկերասեր եմ,ունեմ լավ ընկերներ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s3.jpg" alt="Աշակերտ 3" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Vardan.JPG" alt="Աշակերտ 3" class="student-img"></div>
+            <div class="student-info"><h3>Վարդան Բաղդասարյան</h3><p>Ես Վարդանն եմ։Սիրում եմ շախմատ խաղալ և զբաղվում եմ շախմատով</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s4.jpg" alt="Աշակերտ 4" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Artur Galstyan.JPG" alt="Աշակերտ 4" class="student-img"></div>
+            <div class="student-info"><h3>Արթուր Գալստյան</h3><p>Ես Արթուրն եմ,բարի եմ,ընկերասեր,սիրում եմ ընկերներիս հետ ժամանակ անցկացնել</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s5.jpg" alt="Աշակերտ 5" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Ani Gevorgyan.JPG" alt="Աշակերտ 5" class="student-img"></div>
+            <div class="student-info"><h3>Անի Գևորգյան</h3><p>Ես Անի Գևորգյան եմ ,ապրում եմ երևանում Դավիթշեն գյուղում։ Սովորում եմ Աշոտ Մանուկյանի անվան  Թիվ 93 միջնակարգ դպրոցում։ Զբաղվում եմ նկարչությամբ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s6.jpg" alt="Աշակերտ 6" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Noro Dashtoyan.JPG" alt="Աշակերտ 6" class="student-img"></div>
+            <div class="student-info"><h3>Նորայր Դաշտոյան</h3><p>Ես Նորայրն եմ ,14 տարեկան,հետաքրքրվում եմ խոհանոցով, սիրում եմ դիտել Ֆուտբոլային հանդիպումներ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s7.jpg" alt="Աշակերտ 7" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Emma.JPG" alt="Աշակերտ 7" class="student-img"></div>
+            <div class="student-info"><h3>Էմմա Դավթյան</h3><p>Ես Էմման եմ։ Ես 16 տարեկան եմ։ Ես մեր դասարանի ավագն եմ և պատրաստ եմ միշտ բոլորին օգնել</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s8.jpg" alt="Աշակերտ 8" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Karinka.JPG" alt="Աշակերտ 8" class="student-img"></div>
+            <div class="student-info"><h3>Կարինե Թադևոսյան</h3><p>Ես Կարինեն եմ։ Ես շատ բարի եմ, կարեկցող, անկեղծ և ընկերասեր</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s9.jpg" alt="Աշակերտ 9" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Mariam 1.JPG" alt="Աշակերտ 9" class="student-img"></div>
+            <div class="student-info"><h3>Մարիամ Խաչատրյան</h3><p>Ես Մարիամն եմ,շատ բարի և
+ընկերասեր</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s10.jpg" alt="Աշակերտ 10" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Svetlana.JPG" alt="Աշակերտ 10" class="student-img"></div>
+            <div class="student-info"><h3>Սվետլանա Խաչատրյան</h3><p>Ես Սվետլանան եմ , բարի եմ , կարգապահ և բարեկիրթ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s11.jpg" alt="Աշակերտ 11" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Avet.JPG" alt="Աշակերտ 11" class="student-img"></div>
+            <div class="student-info"><h3>Ավետ Հախոյան</h3><p>Ես Ավետն եմ ,շատ եմ սիրում ժամանակ անցկացնել ընկերներիս հետ ,բարի եմ ու ընկերասեր</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s12.jpg" alt="Աշակերտ 12" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Aram.JPG" alt="Աշակերտ 12" class="student-img"></div>
+            <div class="student-info"><h3>Արամ Հակոբյան</h3><p>Իմ անունը Արամ է։Ես սիրում եմ երգել,սիրում եմ լսել երաժշտություն, և զբաղվում եմ ծրագրավորմամբ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s13.jpg" alt="Աշակերտ 13" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Areg Hakobyan.JPG" alt="Աշակերտ 13" class="student-img"></div>
+            <div class="student-info"><h3>Արեգ Հակոբյան</h3><p>Ես Արեգ Հակոբյանն եմ ,զբաղվում եմ սպորտով ,նկարչությամբ և հաճախում  եմ այլ խմբակներ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s14.jpg" alt="Աշակերտ 14" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/gagik.JPG" alt="Աշակերտ 14" class="student-img"></div>
+            <div class="student-info"><h3>Գագիկ Հակոբյան</h3><p>Ես Գագիկն եմ ,ինձ մոտիկները ասում են Գագո ,ես բարի եմ ընկերասեր և չափազանց ուրախ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s15.jpg" alt="Աշակերտ 15" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Noro Hakobyan.JPG" alt="Աշակերտ 15" class="student-img"></div>
+            <div class="student-info"><h3>Նորայր Հակոբյան</h3><p>Ես Նորայր  Հակոբյանն եմ ,զբաղվում եմ սպորտով ,և հաճախում  եմ այլ խմբակներ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s16.jpg" alt="Աշակերտ 16" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Susi.JPG" alt="Աշակերտ 16" class="student-img"></div>
+            <div class="student-info"><h3>Սուսաննա Մալխասյան</h3><p>Ես Սուսին եմ,ակտիվ ու դրական եմ:Սիրում եմ շփվել և նոր բաներ փորձել</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s17.jpg" alt="Աշակերտ 17" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/IMG_9981.JPG" alt="Աշակերտ 17" class="student-img"></div>
+            <div class="student-info"><h3>Լևոն Մանուկյան</h3><p>Ես Լևոնն եմ,զբաղվում եմ սպորտով ,սիրում եմ դիտել ֆուտբոլային հանդիպումներ ,ապագայում ուզում եմ դառնալ բժիշկ կամ միլիարդատեր։</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s18.jpg" alt="Աշակերտ 18" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Seda.JPG" alt="Աշակերտ 18" class="student-img"></div>
+            <div class="student-info"><h3>Սեդա Մելքոնյան</h3><p>Ես Սեդան եմ,բարի եմ,ընկերասեր և ժպտերես</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s19.jpg" alt="Աշակերտ 19" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Harut.JPG" alt="Աշակերտ 19" class="student-img"></div>
+            <div class="student-info"><h3>Հարություն Միրզախանյան</h3><p>Ես Հարությունն եմ,բարի եմ և ընկերասեր</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s20.jpg" alt="Աշակերտ 20" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Marianna.JPG" alt="Աշակերտ 20" class="student-img"></div>
+            <div class="student-info"><h3>Մարիանա Մխիթարյան</h3><p>Մարիանա,14տարեկան,ազնիվ , ընկեասեր,հանդուրժող</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s21.jpg" alt="Աշակերտ 21" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Mariam 2.JPG" alt="Աշակերտ 21" class="student-img"></div>
+            <div class="student-info"><h3>Մարիամ Շախբազյան</h3><p>Ես Մարիամն եմ։ Ես բարի և ընկերասեր աղջիկ եմ, սիրում եմ բացահայտել նոր բաներ և ունեմ բազմազան հետաքրքրություններ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s22.jpg" alt="Աշակերտ 22" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Arpuk.JPG" alt="Աշակերտ 22" class="student-img"></div>
+            <div class="student-info"><h3>Արփի Սարգսյան</h3><p>Ես Արփին եմ։Ազատ ժամանակ սիրում եմ ֆիլմեր դիտել։Բարի եմ,ընկերասեր և սիրում եմ շփվել մարդկանց հետ</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s23.jpg" alt="Աշակերտ 23" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Elen.JPG" alt="Աշակերտ 23" class="student-img"></div>
+            <div class="student-info"><h3>Էլեն Սիմոնյան</h3><p>Ես Էլենն եմ։ Շատ եմ սիրում ամառը։ Ամենից շատ սիրում եմ ռոք երաժշտություն։Մեկ-մեկ կիթառ եմ նվագում</p></div>
         </div>
 
         <div class="student-card">
-            <div class="student-photo-placeholder"><img src="s24.jpg" alt="Աշակերտ 24" class="student-img"></div>
-            <div class="student-info"><h3>Անուն Ազգանուն</h3><p>Բնութագիր...</p></div>
+            <div class="student-photo-placeholder"><img src="../9bWebsite/images/Davit.JPG" alt="Աշակերտ 24" class="student-img"></div>
+            <div class="student-info"><h3>Դավիթ Փարոյան</h3><p>Ես Դավիթն եմ,ես բարի անկեղծ ֆուտբոլիստ եմ,որը ունի մեկ նպատակ՝դառնալ հայտնի ֆուտբոլիստ և հաղթել աշխարհի ֆուտբոլի առաջնությունը հայաստանի օրհներգի տակ</p></div>
         </div>
 
     </div>
