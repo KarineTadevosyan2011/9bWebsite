@@ -20,18 +20,40 @@
         }
 
         header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 16px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
+            overflow: hidden;
+            padding: 0;
         }
 
-        header img {
+        .hero-image {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            max-width: 450px;
-            height: auto;
-            display: block;
-            margin: 16px auto 0;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(44, 62, 80, 0.62);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 16px;
+            max-width: 800px;
         }
 
         h1 {
@@ -440,7 +462,51 @@
             }
         }
 
-        @media (max-width: 380px) {
+        .our-class-img-wrap {
+            margin: 20px auto 0;
+            width: 100%;
+            max-width: 700px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+            background: #e9eef3;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .our-class-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .our-class-img-placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #a0aab4;
+            font-size: 0.95em;
+            gap: 10px;
+        }
+
+        .our-class-img-placeholder svg {
+            width: 56px;
+            height: 56px;
+            opacity: 0.4;
+        }
+
+        @media (max-width: 600px) {
+            .our-class-img-wrap {
+                aspect-ratio: 4 / 3;
+            }
+        }
             .students-grid {
                 grid-template-columns: 1fr;
             }
@@ -453,10 +519,12 @@
 <body>
 
     <header>
-
-         <h1>ԵՐԵՎԱՆԻ ԱՇՈՏ ՄԱՆՈՒԿՅԱՆԻ ԱՆՎԱՆ Հ. 93 ՄԻՋՆԱԿԱՐԳ ԴՊՐՈՑ</h1>
-        <h1>Դասարան՝ 9-րդ Բ | Թիմ՝ Կիբեռ Հնգյակ</h1>
-         <img src="../9bWebsite/images/dproc1.jpg" width="450" height="450">
+        <img class="hero-image" src="../9bWebsite/images/dproc1.jpg" alt="Դպրոց">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>ԵՐԵՎԱՆԻ ԱՇՈՏ ՄԱՆՈՒԿՅԱՆԻ ԱՆՎԱՆ Հ. 93 ՄԻՋՆԱԿԱՐԳ ԴՊՐՈՑ</h1>
+            <h1>Դասարան՝ 9-րդ Բ | Թիմ՝ Կիբեռ Հնգյակ</h1>
+        </div>
     </header>
 <div class="director-section">
         <div class="director-inner">
@@ -637,9 +705,19 @@
 
     </div>
 </section>
-    <section>
+    <section class="our-class">
         <h2>Մեր Դասարանը</h2>
         <p>Մեր դասարանը բաղկացած է 24 աշակերտից։ Մենք շատ համերաշխ ենք, սիրում ենք միասին սովորել և ստեղծագործել։ Այս էջը պատրաստել ենք մեր թիմով՝ ցույց տալու համար մեր հմտությունները HTML և CSS լեզուներում։</p>
+        <div class="our-class-img-wrap">
+            <img src="../9bWebsite/images/dasaran.jpg" alt="Մեր Դասարանը"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="our-class-img-placeholder" style="display:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                </svg>
+                <span>Մեր Դասարանի Լուսանկարը</span>
+            </div>
+        </div>
     </section>
 
     <section class="motto-box">
